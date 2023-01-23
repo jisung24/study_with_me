@@ -73,7 +73,7 @@ let jisung = {
 let { id, pw, age } = jisung; 
 console.log(id, pw, age);
 
-// -2) 배열에서의 구조분해할당 
+// -2) 배열에서의 구조분해할당 - 배열을 분해해서 배열의 원소를 따로 저장함! 
 // - 객체니까 중괄호를 쓴거고 배열에서는 대괄호를 쓰면 됨. 
 let ramSize = [8, 16, 32, 64];
 let [size8, size16, size32, size64] = ramSize;
