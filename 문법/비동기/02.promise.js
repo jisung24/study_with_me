@@ -18,9 +18,7 @@
 // 언제 올 지 모르는 무거운 거니까 비동기로 해서 밑에부터 해~ 라고 짜지는거야 코드가.
 
 // 무거운 작업 한 번 해보자. 
-const promise = new Promise((resolve, rejected) => {
-    // doing some heavy work
-})
+
 
 // 즉 정리 
 // 비동기 왜 써? => 무거운 일을 해야할 때 다음 라인이 실행 못 하고 기다리니까... 

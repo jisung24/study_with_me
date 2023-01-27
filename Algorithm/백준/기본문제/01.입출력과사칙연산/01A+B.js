@@ -1,5 +1,7 @@
 'use strict';
-const [num1, num2] = require('fs').readFileSync('test.txt').toString().split(' ')
+const [num1, num2] = require('fs').readFileSync('test.txt')
+.toString()
+.split(' ')
 .map((value) => +value);
 // 구조분해할당! 
 // -> 객체 or 배열이라면 무조건 쓸 수 있다. 
