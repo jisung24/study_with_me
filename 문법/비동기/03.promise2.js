@@ -129,3 +129,47 @@ let newFetch = async() => {
     console.log(getMyData);
 }
 newFetch();
+
+// 정리 
+// 1. promise()
+// -> 비동기 함수는 promise를 return해야하고, promise를 return한다는 뜻은 ❗️resolve안에 값이 담긴다❗️
+// 근데 resolve안에 있는 값을 then이라는 함수의 콜백함수 파라미터를 통해서 접근할 수 있다. 
+// -> catch만으로 error handling이 가능하다! 
+// => ❗️단 async await은 error handling을 try-catch로 해야한다.
+// 
+
+// 2. async 
+// 무조건 프로미스를 return하게 해준다. 
+// 즉, resolve(서버에서 받아온 값) 
+// 그래서 마찬가지로 then을 사용하면 return값을 알 수 있다. 
+
+// 3. await 
+// ❗️async함수 안에서만 사용할 수 있다❗️
+// await (promise return하는 함수)
+// await 비동기함수이름 => 이렇게 사용되는데, 
+// promise를 return하면 보통은 then이렇게 접근하는데, 
+// 앞에 await을 붙여주면 then을 사용하지 않아도 저절로 그 값이 return된다.
+
+// let getFetch = await fetch() 면 resolve안에 있는 값이 getFetch로 들어간다.
+// 즉, 원래라면 then을 사용해야만 접근할 수 잇는 값을 then을 사용하지 않고, 한 번에 보일 수 있게해준다.
+
+
+// 에러핸들링 
+let getPromise = () => {
+    return new Promise((resolve, reject) => {
+        return resolve('프로미스 에러핸들링');
+    })
+}
+
+let getAsync = async() => {
+    try{
+        let promise = await getPromise(); // resolve안에 있는 것이 담긴다.!! 
+        //getPromise의 resolve값이 바로 담긴다.!!!!!!!!!!!! 
+        // 즉 무조건 일단 resolve값이 제일 중요해!!!
+        return promise;
+    }catch(e) {
+        return console.log(e); // 실패했을 때! 
+    }
+}
+
+console.log(getAsync().then((value) => console.log(value)));
