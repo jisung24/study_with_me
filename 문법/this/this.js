@@ -23,5 +23,9 @@ console.log(this === window); // true
 
 let hello = () => {
     console.log(this);
+    // ❗️전역함수도 window객체의 메서드이다. 
+    // ⭕️ 그래서 전역함수에서 불린 this는 window가 맞다. 
 }
 hello();
+
+// ⭐️ 전역에서 선언한 모든 변수 함수들은 window의 프로퍼티이다 ⭐️
