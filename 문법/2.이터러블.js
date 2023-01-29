@@ -15,4 +15,3 @@ for(let value of str) {
 console.log(empty);
 
 // 나머진 내일!! 
-
