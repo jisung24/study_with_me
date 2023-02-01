@@ -27,3 +27,10 @@
   - dom도 BOM의 일종임 => 브라우져 전체는 BOM이고, BOM안에서 document띄우는 부분이 DOM임.
 
 - ### 브라우져 렌더링과정
+
+## 2023-01-31
+
+- `앞으로 readme매일매일 써야지!!`
+- `testCase를 포함해서 배열로 넣는 경우 있는데, 그럴경우 shift()로 앞에 있는 testCase count빼버린다.`
+- `str.indexOf("반환하고싶은 문자 => 문제같은 경우 각 알파벳의 index니까 반복하면서 모든 알파벳을 여기다가 넣어준다.")`
+- `str.repeat(반복 횟수) => "A".repeat(2) === "AA"`
