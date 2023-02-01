@@ -1,3 +1,1 @@
-firstReverseNum > secondReverseNum
-  ? console.log(firstReverseNum)
-  : console.log(secondReverseNum);
+console.log(`${copyArr[i]} >> ${count}번`);
