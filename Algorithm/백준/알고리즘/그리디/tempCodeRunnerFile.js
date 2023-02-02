@@ -1,0 +1,1 @@
+console.log("비교 >> ", chosenArr[chosenArr.length - 1][1]);
