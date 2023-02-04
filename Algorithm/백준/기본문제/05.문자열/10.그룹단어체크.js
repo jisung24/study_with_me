@@ -1,4 +1,4 @@
-"use strict";
+"use strict"; // 틀림 (테스트케이스는 다 맞음)
 const input = require("fs").readFileSync("dev/stdin").toString().split("\n");
 
 let wordCount = Number(input.shift()); // 3개가 들어옴.
