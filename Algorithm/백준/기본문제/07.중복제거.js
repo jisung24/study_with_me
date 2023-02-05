@@ -35,10 +35,6 @@ let value = arr.indexOf(7);
   let arr = [1, 3, 5, 5, 6, 7, 8, 9, 9, 2, 3];
 
   let uniqueNums = arr.filter((ele, idx) => {
-    // indexOf는 처음 찾은 수만 return해줌.
-    // 예를들어 5가 2개여도 indexOf는 0번만 return해줘.
-    // 근데 2번째 5의 index는 1번이잖아.
-    // 그니까 2번째 index는 걸러지는거야..!
     return arr.indexOf(ele) === idx;
     // ❗️와... 이건 진짜 생각 못 했다...❗️
   });
