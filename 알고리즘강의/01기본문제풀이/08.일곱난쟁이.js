@@ -9,15 +9,6 @@ let sumOfNine = nine.reduce((acc, cur) => acc + cur);
 console.log(sumOfNine);
 
 for (let i = 0; i < nine.length; i++) {
-  let sum = nine[i];
-  for (let j = 0; j < nine.length; j++) {
-    if (i === j) {
-      continue;
-    }
-    if (nine[i] + nine[j] === 40) {
-      console.log(nine[i], nine[j]);
-    } else {
-      continue;
-    }
-  }
+  // nine의 각 원소에서 40이 되는 걸 골라야 해...! 
+  
 }

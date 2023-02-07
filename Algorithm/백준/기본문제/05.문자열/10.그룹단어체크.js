@@ -1,43 +1,52 @@
-"use strict"; // 틀림 (테스트케이스는 다 맞음)
-const input = require("fs").readFileSync("dev/stdin").toString().split("\n");
+"use strict";
+// 1. slice를 해서 a그룹 이외에 다른 그룹에서 a가 발견되면 안 돼!
+// 자기 그룹 이외의 그룹에서 본인이 나오면 안 돼!!!
 
-let wordCount = Number(input.shift()); // 3개가 들어옴.
-let trueCount = 0;
-let wrong = 0;
-// console.log(input);
+// 2. 아니면... indexOf(INDEX + 1)을 해서 값이 -1이거나 0이 아니라면 다른데에 있다는거니까 탈락.
+// ❗️indexOf가 앞에꺼 제거됐다고 해서 0이 될 순 없음 => 내 생각 틀림.❗️
+// let alpha = "aabbbccb".split("");
+// let count = 0;
+// for (let i = 0; i < alpha.length; i++) {
+//   let value = alpha.indexOf(alpha[0]); // 첫 번째 글자를 찾는다.
+//   // 당연히 있겠지?
+//   value = alpha.indexOf(alpha[0], value + 1);
+//   if (value === -1 || value !== 0) {
+//     // 다른데에 있다는거잖아.....
+//     console.log("out");
+//   } else {
+//     let newArr = alpha.slice(0);
+//   }
+// }
+
+// 연속문자 queue을 이용함!!!
+// 처음 문자를 queue에 집어넣어.
+// 그 다음 문자도 넣고 비교.. 다르면 처음들어온 원소 shift()
+// 또 비교 => 즉 다를 때 까지 비교한다.!!
+let input = require("fs")
+  .readFileSync("dev/stdin")
+  .toString()
+  .trim()
+  .split("\n");
+let cntOfTc = Number(input.shift()); // 4
+let count = 0;
 
 for (let i = 0; i < input.length; i++) {
-  let typeOfWord = [];
-  if (input[i].length === 1) {
-    trueCount++; // 1글자면 무조건 true!!!
-  } else {
-    // 2글자 이상이면, 글자 돌려야지 뭐.
-    for (let j = 0; j < input[i].length; j++) {
-      if (j === 0) {
-        typeOfWord.push(input[i][j]);
-      } else {
-        // 0이 아니면 비교한다.
-        // 1 2 3 4 등등 글자가 여기로 온다.
-        if (input[i][j] === input[i][j - 1]) {
-          continue; // 그냥 지나간다.
-        } else {
-          // 이전값과 값이 다른경우
-          if (typeOfWord.join("").indexOf(input[i][j]) !== -1) {
-            // 근데 이미 값이 나왔을 경우!!!!
-            wrong++;
-            // console.log(`아닌 단어 >> ${input[i]}`);
-            break;
-          } else {
-            // 값이 안 나왔어, 처음이야 => continue;
-            continue; // 맞은건 그냥 넘어간다.
-          }
-        }
-      }
+  let strArr = input[i].split("");
+  let queue = [strArr[0]];
+
+  for (let j = 0; j < strArr.length; j++) {
+    if (strArr[j] !== queue[queue.length - 1]) {
+      queue.push(strArr[j]);
     }
   }
+  let set = new Set(queue);
+  if (set.size === queue.length) {
+    count++;
+  }
 }
-// console.log(`아닌 거 >> ${wrong}`);
-console.log(wordCount - wrong);
+console.log(count);
 
-// 자꾸 틀렸다고 나오는데... 왜지..
-// 틀린 이유 내일 다시 한 번 풀어보자.
+// 생각한 tip
+// 일단 큐에 쌓아놔.
+// 그리고 공백을 없앴을 때 즉, set.size와 queue.length를 비교해!
+// 다르면 공통된 게 있는거니까... 틀렸다고 하고, 맞으면 ok

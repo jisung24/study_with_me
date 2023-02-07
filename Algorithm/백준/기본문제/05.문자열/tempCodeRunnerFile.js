@@ -1,1 +1,2 @@
-console.log(`${copyArr[i]} >> ${count}번`);
+
+  }
