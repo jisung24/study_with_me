@@ -7,6 +7,7 @@ const [nums, ...words] = require("fs")
 
 for (let i = 0; i < words.length; i++) {
   let arr = words[i].split(" ").reverse();
+  console.log(arr);
   let result = "";
   result += arr.join(" ");
   console.log(`Case #${i + 1}: ${result}`);
