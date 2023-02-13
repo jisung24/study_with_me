@@ -1,3 +1,5 @@
-for (let i = 0; i < dump.length; i++) {
-  console.log(i);
-}
+if (stack.length === 0) {
+    console.log("Yes");
+  } else {
+    console.log("No");
+  }
