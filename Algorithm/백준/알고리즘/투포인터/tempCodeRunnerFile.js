@@ -1,0 +1,1 @@
+console.log(`정답 구간 >> [[  ${left},  ${right}]]`);
