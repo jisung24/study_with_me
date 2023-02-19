@@ -1,15 +1,10 @@
 "use strict";
-const input = require("fs").readFileSync("dev/stdin").toString().trim();
-// console.log(input, typeof input);
-let result = "";
-// str.indexOf("위치 찾고싶은 단어 or 문자열");
-let findIndex = (str) => {
-  let alphabet = "abcdefghijklmnopqrstuvwxyz";
+let input = require("fs").readFileSync("dev/stdin").toString().trim();
+let alphabet = "abcdefghijklmnopqrstuvwxyz";
+let answer = "";
 
-  for (let value of alphabet) {
-    result += str.indexOf(value) + " ";
-  }
-  return result;
-};
-
-console.log(findIndex(input));
+for (let value of alphabet) {
+  // input에서 찾는거야...!
+  answer += input.indexOf(value) + " ";
+}
+console.log(answer);
