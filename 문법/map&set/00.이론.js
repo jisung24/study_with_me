@@ -3,6 +3,10 @@ const map = new Map([
   ["key1", "value1"],
   ["key2", "value2"],
 ]);
+
+// 값 만 가져오기
+console.log(`값 >> `, Object.values(map));
+
 console.log(map);
 
 // 맵의 사이즈 확인
