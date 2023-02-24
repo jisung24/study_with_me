@@ -13,23 +13,23 @@ function solution(keyinput, board) {
     switch (keyinput[i]) {
       case "left": // 왼쪽!
         console.log("왼쪽입니다..!");
-        if (currentX > possibleX[0] && currentX > possibleX[1]) {
+        if (currentX > possibleX[0] && currentX < possibleX[1]) {
           currentX--;
           console.log(currentX);
         }
         break;
       case "right": // 오른쪽!
-        if (currentX > possibleX[0] && currentX > possibleX[1]) {
+        if (currentX > possibleX[0] && currentX < possibleX[1]) {
           currentX++;
         }
         break;
       case "up": // 위쪽!
-        if (currentY > possibleY[0] && currentY > possibleY[1]) {
+        if (currentY > possibleY[0] && currentY < possibleY[1]) {
           currentY++;
         }
         break;
       case "down": // 아래쪽!
-        if (currentY > possibleY[0] && currentY > possibleY[1]) {
+        if (currentY > possibleY[0] && currentY < possibleY[1]) {
           currentY--;
         }
         break;

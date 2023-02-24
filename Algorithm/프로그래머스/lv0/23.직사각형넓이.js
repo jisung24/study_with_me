@@ -6,5 +6,3 @@ let dots = [
   [1, 2],
 ];
 
-let filter = dots.filter((ele) => ele[0]);
-console.log(filter);
