@@ -1,19 +1,31 @@
-"use strict";
-const arr = "1.222";
-console.log(parseInt(arr));
+// 1. 순위 매기기
+let arr = [
+  1, 2, 2, 3, 2, 2, 1, 1, 3, 3, 2, 1, 1, 1, 1, 2, 3, 3, 1, 1, 2, 3, 3, 1, 1, 2,
+  2, 3, 3, 1, 2, 3, 1, 4,
+];
 
-console.log((1.33333).toFixed(2)); // 2번째 자리까지 나타내자..!
-console.log((1.225).toFixed(2)); // 세 번째 자리에서 반올림한다..! 이렇게 해석하는 게 가장 정확해.
+// 1 2 3의 각각의 순위를 매기자...!!! (❗️동률이 있을 때는 그 만큼 2 3 위가 사라지고 4위가 바로 되는거야...!)
+let hash = {};
+for (let i = Math.min(...arr); i <= Math.max(...arr); i++) {
+  hash[i] = 0;
+}
 
-{
-  // 큰 수 부터 작은 순으로 정렬한 새로운 정수를 return
-  // 정수 => parseInt()
-  // Number는 소수까지 다 포함한다 => 그냥 숫자!
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] in hash) {
+    hash[arr[i]] += 1;
+  }
+}
 
-  let n = 118372;
-  let sort = n
-    .toString()
-    .split("")
-    .sort((a, b) => b - a);
-  console.log(parseInt(sort.join("")));
+// 값들만 가져오기..!
+let voteResult = Object.values(hash).sort((a, b) => b - a);
+let setVote = Array.from(new Set(voteResult));
+console.log(setVote);
+let rank = 1;
+for (let i = 0; i < setVote.length; i++) {
+  let findKey = Object.keys(hash).filter((ele) => hash[ele] === setVote[i]);
+  console.log(findKey); // 1    2,3    4
+
+  console.log(`${rank}위 >> ${findKey}    득표수 >> ${setVote[i]}`);
+
+  rank += findKey.length;
 }

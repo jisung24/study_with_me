@@ -1,66 +1,62 @@
-"use strict";
-// dfs : 깊이 우선 탐색
-// bfs : 너비 우선 탐색
+// "use strict";
+// // bfs
+// // 2개의 큐를 활용한다.!!!
 
-// bfs같은 경우엔 queue로 구해준다...!
-class Queue {
-  constructor() {
-    this.queue = [];
-    this.front = 0;
-    this.rear = 0;
-  }
+// let visited = []; // 탐색이 끝난 큐
+// let needVisit = []; // 탐색이 아직 필요한 큐
+// let startNode = "A";
 
-  size() {
-    return this.rear - this.front;
-  }
-  // enqueue
-  enqueue(value) {
-    this.queue[this.rear++] = value;
-  }
+// needVisit.push(startNode); // 시작 노드
 
-  // dequeue
-  dequeue() {
-    if (this.size() === 0) {
-      return -1;
-    } else {
-      let value = this.queue[this.front];
-      delete this.queue[this.front];
-      this.front += 1; // front를 1증가시킨다..!
-      return value;
-    }
-  }
+// while (needVisit.length > 0) {
+//   // 더 필요한 노드가 없을 때 까지..!
+//   let node = needVisit.shift(); // 일단 A노드를 빼서 저장해서
+//   // 이 A와 연결 된 노드들을 다시 visited에 넣어준다!!!
+//   // 만약 방문이 끝난 노드에 노드가 없다면..!
 
-  // peek : 큐에서 가장 앞에 있는 수 return!
-  peek() {
-    return this.queue[this.front];
-  }
-}
+//   // 일단 빼서 저장하는 게 매우 중요하다..!
+//   if (!visited.includes(node)) {
+//     visited.push(node); // 방문이 끝난 노드에 A를 넣어주고
+//     needVisit = [...needVisit, ...graph[node]]; // 넣어준다!
+//     // node(A)와 연결 된 노드를 다시 넣어준다...!
+//     // 기존꺼는 왜 합치냐면 A이후에 B C가 동시에 들어오고
+//     // B와 연결된 A D여기서는 D만 들어오는데, C가 아직 안 나갔기 때문에,
+//     // 처음꺼와 합쳐준다.
+//     console.log("방문이 필요한 노드 >> ", needVisit);
+//     console.log(`방문이 끝난 노드 >> ${visited}`);
+//   }
+// }
+// console.log(visited);
 
-const graph = {
-  // 각 노드가 property
-  // 각 노드와 연결 돼 있는 노드들을 value로 설정함.
+let graph = {
   A: ["B", "C"],
   B: ["A", "D"],
-  C: ["A", "E"],
-  D: ["B", "F"],
-  E: ["C", "G"],
-  F: ["D", "H", "I"],
-  G: ["E", "J", "K"],
-  H: ["F", "L"],
-  I: ["F", "M"],
-  J: ["G", "N"],
-  K: ["G", "O"],
-  L: ["H"],
-  M: ["I", "P"],
-  N: ["J"],
-  O: ["K"],
-  P: ["M"],
+  C: ["A", "G", "H", "I"],
+  D: ["B", "E", "F"],
+  E: ["D"],
+  F: ["D"],
+  G: ["C"],
+  H: ["C"],
+  I: ["C", "J"],
+  J: ["I"],
 };
 
-let queue = new Queue();
+let needVisitStack = [];
+let visitedQueue = [];
+let startNode = "A";
 
-let arr = [1];
-let i = 0;
-while (arr.length > 0) {
-  // 중간에 0이 돼도 끝에서만 0이 안 되면 계속 반복이 된다.!!!
+needVisitStack.push(startNode);
+
+while (needVisitStack.length > 0) {
+  let node = needVisitStack.pop(); // 일단 하나를 꺼낸다!
+
+  if (!visitedQueue.includes(node)) {
+    visitedQueue.push(node); // 방문 끝난 노드에 넣어준다!
+
+    // 방문이 필요한 그래프에,
+    // 기존에 아직 검사 안 끝난 그래프랑 pop돼서 나간 노드와 연결 돼 있는 노드들
+    needVisitStack = [...needVisitStack, ...graph[node]];
+  }
 }
+
+console.log(visitedQueue);
