@@ -1,1 +1,0 @@
-r[Math.floor(str.length / 2)] - 1
