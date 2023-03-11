@@ -67,3 +67,5 @@ let weight = 10;
 let truck_weights = [7, 4, 5, 6];
 
 solution(bridge_length, weight, truck_weights);
+
+// queue 2단계 solution

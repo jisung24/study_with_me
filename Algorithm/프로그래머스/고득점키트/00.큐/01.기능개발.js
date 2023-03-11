@@ -1,5 +1,6 @@
 "use strict";
-"use strict";
+//it설명 3줄이내.... => 책애 없음 ㄹㅇ문과적 뇌피셜과목이네 이거 글 잘 지어내서 잘 쓰면 a
+// 나랑같은조 ㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲㄲㄱㅃㅃㅃㅃㅉㅉㄹㅈ
 class Queue {
   constructor() {
     this.queue = [];

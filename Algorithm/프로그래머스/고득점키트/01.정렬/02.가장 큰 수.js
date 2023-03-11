@@ -29,30 +29,32 @@
 // 1자리 수면 본인이겠지...!
 // arr[arr.length - 1]이랑 비교한다..!
 
+
 let numbers1 = [770, 340, 7, 5, 9];
 let numbers2 = [6, 10, 2];
 
 let solution = (numbers) => {
-  let answer = "";
-  let sortArr = numbers.sort((a, b) => {
-    let aArr = a.toString().split("").map(Number);
-    let bArr = b.toString().split("").map(Number);
+    let answer = "";
+    let sortArr = numbers.sort((a, b) => {
+      let aArr = a.toString().split("").map(Number);
+      let bArr = b.toString().split("").map(Number);
+// 아니 오늘 벌써 목요일이야? 
 
-    if (aArr[0] !== bArr[0]) {
-      // 첫 째 자리로 내림차순 정렬!
-      return bArr[0] - aArr[0];
-    } else {
-      // 여기는 처음 값은 무조건 같은 수 들의 비교야...!
-      // 길이가 더 긴 게 무조건 큰 수일거아니야...!!
-      console.log(aArr);
-      console.log(bArr);
-      let bigger = aArr.length > bArr.length ? aArr : bArr;
-      console.log(`더 큰 수 >> ${bigger}`); // [7, 7, 0]
-      // 7까지는 똑같아... 앞 자리!
-      // 7767 777
-      // 337 32
-    }
-  });
+      if (aArr[0] !== bArr[0]) {
+        // 첫 째 자리로 내림차순 정렬!
+        return bArr[0] - aArr[0];
+      } else {
+        // 여기는 처음 값은 무조건 같은 수 들의 비교야...!
+        // 길이가 더 긴 게 무조건 큰 수일거아니야...!!
+        console.log(aArr);
+        console.log(bArr);
+        let bigger = aArr.length > bArr.length ? aArr : bArr;
+        console.log(`더 큰 수 >> ${bigger}`); // [7, 7, 0]
+        // 7까지는 똑같아... 앞 자리!
+        // 7767 777
+        // 337 32
+      }
+    });
 
   return sortArr.join("");
 };
