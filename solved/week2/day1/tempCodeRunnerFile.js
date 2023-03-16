@@ -1,11 +1,3 @@
-// 순열 조합 코드...!
-
-// 조합
-// [1,2,3,4]
-// 1을 고르고 2 3 4중 pickCnt - 1개 고려!
-
-//
-function combinations(arr, n) {
   // 1개만 뽑는다면 그대로 조합을 반환한다. 탈출 조건으로도 사용된다.
   if (n === 1) return arr.map((v) => [v]);
   const result = [];
@@ -26,18 +18,3 @@ function combinations(arr, n) {
   // 결과 반화
   return result;
 }
-let input = require("fs").readFileSync("dev/stdin").toString().split("\n");
-let [N, M] = input[0].split(" ").map(Number);
-let arr = input[1].split(" ").map(Number);
-
-// console.log(combinations([1, 2, 3, 4, 5], 3));
-let result = combinations(arr, 3);
-// console.log(result);
-let sumArr = result
-  .map((v) => v.reduce((acc, cur) => acc + cur))
-  .filter((e) => e <= M)
-  .sort((a, b) => {
-    return a > b ? 1 : -1;
-  });
-
-console.log(sumArr[sumArr.length - 1]);
