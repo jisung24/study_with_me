@@ -2,7 +2,11 @@
 
 // 자바스크립트는 큐를 직접 구현해야 함
 // ❗️단 shift를 사용하면 안 됨(가장 앞에 있는 원소 제거 => O(N))
-
+{
+  // 배열로 구현을 하게 되면, pop이 O(N)이라서 불가능
+  // 연결리스트로 구현을 해야 함
+  // 먼저 들 => 먼저 나 => 맨 앞(
+}
 class Queue {
   // Array
   constructor() {
@@ -49,3 +53,13 @@ class Queue {
 
 // 갑자기 꿀 팁... => highlight Matching tag 다운 받으세여... 꿀입니다 진짜
 //
+let queue = new Queue();
+queue.enqueue(1);
+queue.enqueue(7);
+queue.enqueue(10);
+queue.enqueue(100);
+console.log(queue);
+
+queue.dequeue();
+console.log(queue);
+// 메모리 공간은 계속 차지함.

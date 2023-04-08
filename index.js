@@ -1,42 +1,33 @@
 "use strict";
-// class가 class를 상속하는 게 아니라,
-// 객체가 객체를 상속한다.
 
-{
-  let arr = [1, 2, 3, 4, 5];
-  let obj = {
-    1: "firstNum",
-    2: "secondNum",
-    // 이거 처럼 단순 list는 배열이 맞는데,
-    // 그 list에 설명이 필요할 수 있다 => 그럼 객체를 사용할 수 있다.
-  };
+let arr1 = [
+  [1, 2],
+  [2, 3],
+];
+let arr2 = [
+  [3, 4],
+  [5, 6],
+];
 
-  // 값에 접근하는 방법
-  // - .으로 접근하기
-  // - 대괄호 []로 접근하기 => 근데 배열이랑 접근 법이 똑같네?
-  // ❗️자바스크립트는 배열도 객체이다 => 속성이 index임
-  // 그래서 배열 객체는 .으로 접근을 못 하는거야!
-  // 왜냐면, 숫자는 .로 접근이 안 되기 때문에....!
-  // 배열은 index를 키로 갖는 객체이다.
-  //❗️
-  for (let key in arr) {
-    console.log(key);
-    // 분명 배열인데 배열의 키를 출력했는데, 배열의 index가 나옴!
-    // 배열도 객체야!!!!!!!!
+// 행과 열의 크기가 같은 두 행렬을 더하는 작업!
+
+// [1, 2]
+let answer = [];
+for (let i = 0; i < arr1.length; i++) {
+  let sum = [];
+  for (let j = 0; j < arr1[i].length; j++) {
+    //
+    // console.log(arr1[i][j] + arr2[i][j]);
+    // sum.push(arr1[i][j] + arr2[i][j]);
   }
+  answer.push(sum);
 }
-
-// 객체에서 주의 할 점
-// .뒤에는 반드시 구체적인 속성 이름이 와야 함.
-// 그래서 어떤 속성이 올 지 정확히 모른다면 [변수]로 적어줘야 함!
-{
-  let printObj = (key, value) => {
-    let obj = {};
-    return (obj[key] = value);
-  };
-  console.log(printObj("안녕", 10));
-}
+console.log(answer);
 
 {
-  // 객체는 언제 사용하는지?
+  let arr = [
+    [1, 2],
+    [2, 3],
+    [4, 5],
+  ];
 }
