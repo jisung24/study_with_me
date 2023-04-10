@@ -1,5 +1,4 @@
-ㅍ;
-
+"use strict";
 console.log(factorial(4));
 // 5! 은 5 * 4!
 
