@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+<body>
+    <h1>title</h1>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+
+    <script>
+        // dom을 다 그리고 나서 접근을 해줘야 해! 
+        // Cannot read properties of null (reading 'querySelectorAll')
+        // script를 dom이 그려지기도 전에 html에 접근을 해서 아직 dom에 html이 없는거야! 
+        // 자바스크립트는 dom에 그려진 html만 접근을 할 수 있는데, 아직 반영이 안 된 html에 접근한더야! 
+        const ul = document.querySelector('ul');
+        const li = ul.querySelectorAll('li');
+        const arr = [];
+        for(let i = 0; i < li.length; i++) {
+            arr.push(li[i].innerText);
+        }
+
+        console.log(arr);
+        console.log(li);
+
+        const add = (...numbers) => {
+            let sum = 0; 
+            for(let i = 0; i < numbers.length; i++){
+                sum += Number(numbers[i]);
+            }
+
+            return sum;
+        }
+        console.log(add(...arr));
+        
+    </script>
+</body>
+</html>

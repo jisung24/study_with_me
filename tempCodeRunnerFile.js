@@ -1,1 +1,1 @@
-console
+answer += (heap.pop() || 0) + "\n"; // pop을 한 값을 answer에 넣어줌!
