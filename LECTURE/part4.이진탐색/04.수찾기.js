@@ -39,3 +39,7 @@ for (let i = 0; i < findArr.length; i++) {
   let start = 0;
   let end = arr.length - 1;
 }
+
+// 어떤 범위가 있는데 그 범위를 배열에 넣으면
+// 당연히 정렬이 되게 된다.
+// => 이 상태에서 binary search를 한다!

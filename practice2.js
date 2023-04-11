@@ -19,3 +19,12 @@
 // - avl tree
 // - 레드 블랙 트리
 // 라는 알고리즘을 짤 수 있다.
+
+// 클 경우에만 조사한다!!!
+
+// dom tree : to to list
+// calander : 달력..!
+// ==> 달력
+class Node {
+  constructor;
+}

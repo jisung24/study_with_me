@@ -4,5 +4,5 @@ let N = Number(input[0]);
 
 for (let i = 1; i <= N; i++) {
   let data = Number(input[i]);
-  console.log(data);
+  // 입력 값을 받아줌
 }
