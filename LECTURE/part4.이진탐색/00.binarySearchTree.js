@@ -18,6 +18,7 @@
 // - 왼쪽 자식 중에서 가장 큰 값을 삭제할 원소 자리로 옮긴다.
 
 class Node {
+  // 노드
   constructor(value) {
     this.value = value; // 추가할 값
     this.left = null; // 왼쪽 pointer;
@@ -25,6 +26,7 @@ class Node {
   }
 }
 
+// 이진탐색트리 : 제일 위에 뭔가가...
 class BinarySearchTree {
   constructor() {
     this.root = null;
@@ -48,6 +50,9 @@ class BinarySearchTree {
     // 루트에 값이 있다면!
     // 이제 비교해야 돼!
     let currentNode = this.root;
+    // currentNode가 계속 바뀌면서 삽입된 값과 비교!
+    // currentNode보다 작으면 왼쪽에 삽입
+    // 크면 오른쪽에 삽입
     while (currentNode !== null) {
       // 빌 때 까지...!
       if (currentNode.value < value) {
@@ -55,6 +60,7 @@ class BinarySearchTree {
         // 오른쪽으로 이동한다.
         if (currentNode.right === null) {
           currentNode.right = newNode;
+          // 오른쪽에 배치해준다.
           break;
         }
         currentNode = currentNode.right;
@@ -78,3 +84,21 @@ bst.insert(6);
 bst.insert(5);
 bst.insert(2);
 console.log(bst);
+
+// 연결리스트 => 검색 속도 && 삽입, 삭제 => 빠르게
+// 삽입 삭제 => 정렬
+
+// 이진 탐색 트리 => 정렬이 안 된 상황에서 사용하면 좋음
+// 이진 검색 => 정렬이 된 상황에서 사용하면 좋음.
+
+// 값을 모든 루트와 비교를 해서
+// 작으면 왼쪽, 크면 오른쪽을 반복해!
+
+// 5 => 루트니까 5
+// 4 => 5와 비교 작으니까 왼쪽
+// 7 => 5와 비교 크니까 오른쪽
+// 8 => 5와 비교 크니까 오른쪽 => 7과 비교 => 크니까 7보다 오른쪽
+// 6 => 5보다 큼 => 오른쪽 => 7보다 작음 => 7에서 왼쪽
+// 2 => 5보다 작아 => 5왼쪽으로 내려가 => 값 없으니까 5왼쪽에 배치
+
+//
