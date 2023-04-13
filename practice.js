@@ -6,7 +6,7 @@
 
 class MaxHeap {
   constructor() {
-    this.heap = [null];
+    this.heap = [null]; // [null]
   }
 
   // push : 힙(배열)에 값을 추가한다.
@@ -34,7 +34,9 @@ class MaxHeap {
   pop() {
     // 루트 정점만 남은 경우! ==> 배열 1개만 남은 경우!
     if (this.heap.length === 2) return this.heap.pop();
+    // [ null, 3 ] => 1개... null 
 
+    // 자식 
     // 원소의 개수가 여러 개 인 경우!
     let returnValue = this.heap[1]; //
     this.heap[1] = this.heap.pop(); // 남아있는 heap에서 가장 마지막 값을 root위치에 넣어준다.

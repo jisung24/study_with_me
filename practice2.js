@@ -25,6 +25,65 @@
 // dom tree : to to list
 // calander : 달력..!
 // ==> 달력
-class Node {
-  constructor;
+
+// ❗️ 시험 ❗️
+{
+  function solution(N, arr1) {
+    // 8개의 방향
+    let x = [1, -1, 0, 0, 1, 1, -1, -1];
+    let y = [0, 0, 1, -1, 1, -1, 1, -1];
+
+    let answer = [];
+    return answer;
+  }
+
+  // 숫자는 주변 8칸에 있는 지뢰의 개수를 의미
+  // 하지만, 한 칸에 1개에서 9개까지 들어갈 수 있음
+  // 즉, 한 칸에 지뢰가 4개일 수 있고, 9개일 수 있음
+
+  // 입력 => . or 숫자
+  // .는 그 칸에 지뢰x
+  // 숫자는 그 칸의 지뢰 개수!
+
+  // 각 칸에서 돌려보는거야!!!
+  // 1은 *로...
+  // .는 주변 8방향을 보는거야!
+  // [*, 4, 3, 3, 0]
+  // [1, 4, *, 3, 0]
+
+  let arr1 = [
+    ["1", ".", ".", ".", "."],
+    [".", ".", "3", ".", "."],
+    [".", ".", ".", ".", "."],
+    [".", "4", ".", ".", "."],
+    [".", ".", ".", "9", "."],
+  ];
+  let N = 5;
+  // console.log(solution(N, arr1));
+  // 우선 범위를 check해준다!
+  // dfs로 한 번 해봄..!
+
+  let answer = [];
+  for (let i = 0; i < N; i++) {
+    // 세로!
+    answer[i] = [];
+    for (let j = 0; j < N; j++) {
+      // isNaN => .도 false가 나와서 판독 불가!
+      if (arr1[i][j] !== ".") {
+        // 숫자!
+        answer[i].push(arr1[i][j]);
+      } else {
+        // 탐색! 
+        // 1. 범위에 들어오면..! 
+
+      }
+    }
+  }
+  console.log(answer);
+
+
+  function dfs(graph, x, y)  {
+    
+  }
+  function checkRange()
 }
