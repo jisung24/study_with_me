@@ -1,45 +1,37 @@
 "use strict";
-// 노드 간선 정보
+// 1에서 시작한 dfs횟수!
 let input = require("fs").readFileSync("dev/stdin").toString().split("\n");
-// 그래프 노드 개수! => +1로 그래프 초기화 시켜줘야 함!
-let node = Number(input[0]); // 7개!
-// 🔴 edge수 🔴
-let edge = Number(input[1]); // 6개!
+let node = Number(input[0]); // 7개...!
+let edge = Number(input[1]);
 
-// 그래프 default초기화!
+// 기본 골격
 let graph = [...new Array(node + 1)].map((v) => []);
-let visited = [...new Array(node + 1).fill(false)]; // visited를 일단 전부 false로!
+let visited = [...new Array(node + 1)].fill(false);
 
-// 그래프 && visited 초기화
+// 직접 골격 안에다가 초기화!
 for (let i = 0; i < edge; i++) {
-  let start = Number(input[i + 2].split(" ")[0]);
-  let end = Number(input[i + 2].split(" ")[1]);
+  let [start, end] = input[i + 2].split(" ").map(Number);
   graph[start].push(end);
   graph[end].push(start);
 }
-console.log(graph);
 
-// dfs (1부터 시작)
-let answer = 0;
-let dfs = (startNode) => {
-  visited[1] = true;
+// dfs를 한 번 호출한다음에 visited true된 개수 확인해주면 돼!
+dfs(1);
+console.log(visited.filter((e) => e === true).length - 1);
 
-  // startNode와 연결된 모든 곳을 true로 방문해준다!!!
+function dfs(startNode) {
+  let answer = 1;
+  visited[startNode] = true;
+
   for (let linked of graph[startNode]) {
-    // startNode와 연결된....것들 싹 다...!
+    // console.log(linked); // 1개씩 나오겠지? => 연결 된 노드를 찾음
     if (!visited[linked]) {
-      // 2와 5가 들어올거야 순서대로
-      // 2일 때 dfs를 한 번 돌고... 5일 때도 한 번 돌고... 이런식으로!
-      // false일 경우...!
-      visited[linked] = true; // 방문 했다고 표시해준다..!
-      // 2를 방문해준다... 이후 또 5을 또 계속
+      // 아직 방문하지 않았다면...!
+      visited[linked] = true; // true로 바꿔준다.
+      dfs(linked);
       answer += 1;
-      dfs(linked); // 이걸 안 해주면 처음에 1과 연결된 2 5만 방문하고... 2와 5와 연결된 곳도 방문을 계속 해줘야 함!
     }
   }
-  return answer; // 1자신은 빼야하므로!
-};
 
-console.log(dfs(1));
-
-// dfs를 통해서 visited와 dfs한 번에 연결된 노드가 몇 개가 있는 지 알 수 있음..
+  return answer;
+}
