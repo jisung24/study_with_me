@@ -263,3 +263,7 @@ var hex = decimal.toString(16); // 16진수로
     console.log(hash, answer);
   }
 }
+
+{
+  // 시저 암호
+}
