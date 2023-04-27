@@ -148,6 +148,6 @@
     "...x.x...",
     "....x....",
   ];
-  let newA = arr.map((v) => [v, v].));
+  //   let newA = arr.map((v) => [v, v].));
   console.log(newA);
 }

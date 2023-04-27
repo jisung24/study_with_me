@@ -16,8 +16,12 @@ let edge = Number(input[1]); // 간선의 개수
 
 // 그래프 틀 잡기
 let graph = [];
-let visited = [...new Array(node + 1)].fill(false);
+let visited = [...new Array(node + 1)].fill(false); // 아직 모든 노드 방문 ❌
 
+{
+  let visited = [...new Array(node + 1)].fill(false);
+  console.log(visited);
+}
 // 노드의 개수만큼 그래프 표시!
 // 0번은 자연스럽게 empty가 됨.
 for (let i = 1; i <= node; i++) {

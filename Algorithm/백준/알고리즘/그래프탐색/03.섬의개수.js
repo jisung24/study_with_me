@@ -39,6 +39,12 @@ function dfs(x, y) {
   cnt += dfs(x - 1, y);
   cnt += dfs(x, y + 1);
   cnt += dfs(x, y - 1);
+  // 상하좌우까지 끝
+  // 이젠 대각선 8방을 다 살펴줘야 해!
+  cnt += dfs(x + 1, y + 1); // 우상
+  cnt += dfs(x + 1, y - 1); // 우하
+  cnt += dfs(x - 1, y + 1); // 좌상
+  cnt += dfs(x - 1, y - 1); // 좌하
 
   return cnt; // 내부 노드 개수...!
 }
