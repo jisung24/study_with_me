@@ -51,3 +51,9 @@ function dfs(startNode) {
     }
   }
 }
+
+{
+  console.log("Hello");
+  let add = (a, b) => 3;
+  console.log(add(1, 7));
+}
