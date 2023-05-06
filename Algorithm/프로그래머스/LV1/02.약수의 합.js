@@ -1,14 +1,13 @@
 "use strict";
 let solution = (number) => {
-  let sum = 0; // 약수들의 합
+  let sum = 0;
   for (let i = 1; i <= number; i++) {
     if (number % i === 0) sum += i;
   }
 
   return sum;
 };
-
-// console.log(solution(7));
+console.log(solution(20)); // 20의 약수의 합!
 
 {
   // 1. 0으로 나눠봤자 계속 무한. => infinity
@@ -26,4 +25,9 @@ let solution = (number) => {
   console.log(5 % 6); // 5
   console.log(5 % 7); // 5
   console.log(5 % 8); // 5
+  // ( n % x )의 결과는 0부터 n까지이다.
+  console.log(10 % 20); // 10보다 큰 수로 나머지를 쪼개면 당연히 자기 자신이나옴...!
+}
+
+{
 }

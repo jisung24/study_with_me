@@ -1,72 +1,62 @@
 "use strict";
-// 입출력 형식
-const input = require("fs").readFileSync("dev/stdin").toString().split("\n");
-const stu = Number(input[0]);
-const arr = input[1].split(" ").map(Number);
-
-console.log(
-  arr.sort((a, b) => {
-    if (a > b) return -1;
-    else if (a < b) return 1;
-  })
-);
-
-// 사칙연산
-console.log(4 + 3);
-console.log(4 - 1);
-console.log(4 * 43);
-console.log(3 / 4); // 어차피 0나옴!
-console.log(Number((1 / 3).toFixed(1))); //toFixed는 float을 return한다.
-console.log(4 % 3); // 절대 3을 넘을 순 없어!
-
-// ❗️출력 과정만으로 시간초과를 받을 때가 있다❗️
-// 🔴 여러 줄을 계속 console.log로 출력 할 때 이다 🔴
-// answer += 식으로 계속 저장해서 한꺼번에 출력하는 것이 훨씬 더 수월하다.
-
-// 한 줄씩 입력을 받는 모듈
-// const rl = require("readline").createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-// });
-
-// let readInput = []; // 입력을 받아서 여기다가!
-
-// rl.on("line", (line) => {
-//   readInput.push(line); // 입력받은 걸 input에 넣어준다.
-// })
-//   // 🔴 Ctrl + D or + C를 입력했을 때 나오는 코드 🔴
-//   .on("close", () => {
-//     // 콘솔 입력 창에서 Ctrl + C or Ctrl + D를 입력하면 종료!
-//     // 종료 되는 순간 아래 있는 코드가 실행된다.
-//     console.log(readInput);
-//     process.exit(0);
-//   });
-
+// ⭐️ data 출력 ⭐️
 {
-  // ⭐️ 배열 초기화 방법 ⭐️
-  // 1. 직접 값을 설정해서 초기화
-  {
-    let arr = [1, 2, 3, 4, 5];
-    console.log(arr);
-  }
-  // 2. 모든 원소에다가 똑같은 값을 넣고 싶을 때!
-  {
-    let arr = new Array(6).fill([1, 2]);
-    console.log(arr);
-  }
-  // 3. 연속되는 값으로 초기화!
-  {
-    let arr = Array.from({ length: 10 }, (_, i) => i + 1);
-    console.log(arr);
-  }
+  const name = "김지성!";
+  console.log("name >> ", name);
+  console.log(`name >> ${name}`); // 벡틱 사용!
+
+  // template literal
+  // - 따옴표 대신 backtick(`)을 사용한 문자열 표기법!
+  // 1. 여러 줄 표시가 가능하다.
+  // 2. 문자열 인터폴레이션
+  // - 백틱 내에 ${}로 새로운 문자열을 삽입할 수 있는 기능.
+  // - 인터폴레이션 내의 표현식은 문자열로 강제 type변환된다.
+  let str = `
+  hello world1,
+  hello world2,
+  `;
+  console.log(`${str}`); // 문자열 인터폴레이션! => ${}안에다가 새로운 문자열 삽입!
+  console.log(`${44444}`);
+}
+
+// ⭐️ 변수 선언 방법 ⭐️
+// - var, let, const(상수)
+{
+  // ❗️자바스크립트는 동적 타입 언어이다❗️
+  // 👉 보면 선언할 때, 타입이 결정되는 것이 아니라 할당에서 type이 결정된다.
+  // 👉 var, let, const로는 type을 알 수 없기 때문이다.
 }
 
 {
-  // ⭐️ 숫자.toFixed(1) ⭐️
-  // - 소수점 원하는 위치까지 반올림해서 출력하기
-  // - 🔴 문자열로 출력이 되니까 무조건 정수형으로 바꿔줘야한다 🔴
-  {
-    let float = 1.3347;
-    console.log(Number(float.toFixed(3)));
+  // 문자열에서 숫자찾기!
+  // isNaN(문자열)
+  // true이면 숫자가 아니고, false이면 숫자이다.
+  let str = "1a6ghj";
+  let sum = 0;
+  for (let value of str) {
+    if (isNaN(value) === false) sum += Number(value);
   }
+  console.log(`숨어있는 숫자의 합..! >> ${sum}`);
+
+  // 연속하는 숫자까지..!
+  let str2 = "a65bq99";
+  let answer = "";
+  for (let value of str2) {
+    if (isNaN(value)) answer += value.replace(value, " ");
+    else answer += value;
+  }
+  let nums = answer.trim().split(" ");
+  let total = 0;
+  for (let value of nums) {
+    if (isNaN(value) === false) total += Number(value);
+  }
+
+  console.log(total);
+}
+
+{
+  // 정수인지, 소수인지 check!
+  let a = 3;
+  if (a === parseInt(a)) console.log("정수 맞음!");
+  else console.log("정수 아님...!");
 }
