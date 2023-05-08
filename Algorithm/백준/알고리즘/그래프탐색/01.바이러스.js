@@ -57,3 +57,9 @@ function dfs(startNode) {
   let add = (a, b) => 3;
   console.log(add(1, 7));
 }
+
+{
+  let arr = [1, 3, 5, 7, 8];
+  let filter = arr.filter((v, i) => i);
+  console.log(filter);
+}
