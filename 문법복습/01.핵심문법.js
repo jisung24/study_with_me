@@ -73,3 +73,75 @@
   if (a === parseInt(a)) console.log("정수 맞음!");
   else console.log("정수 아님...!");
 }
+
+{
+  // es6부터 추가 된 문법!
+
+  // ⭐️ shorthand property names
+  const name = "지성";
+  const age = 26;
+  const jisung = { name, age };
+
+  // ⭐️ Destructuring assignment
+  // object, array
+  // object
+  let me = {
+    a: "지성",
+    b: "ㅇㅈㅇㅁㅈㅇㅁㅈ",
+    sum() {
+      return 1 + 3;
+    },
+  };
+
+  const { a, b, sum } = me; // 함수 이름도 가능하다.
+  console.log(sum());
+
+  // array
+  let arr = [1, 2, 3, 4, 5];
+  let [num1, num2, num3, num4, num5] = arr;
+  console.log(num1, num2, num3, num4, num5);
+}
+
+{
+  // ✨ spread
+
+  // 배열 복사 : 1차원까지만 깊은 복사, 2차원 부터는 JSON사용하자!
+  let arr = [1, 2, 3, 4, 5];
+  let arr2 = [...arr, 7]; // 복사 후 값 추가까지..!
+  arr2[3] = 1000;
+  console.log(arr, arr2); // arr2만 변경됨!
+
+  // object복사!
+  let obj = {
+    name: "지성",
+    age: 26,
+  };
+  let obj2 = {
+    ...obj,
+    phone: "010~~",
+  };
+
+  {
+    // obj 1차원...깊은 복사!
+    let obj3 = {
+      name: "지성",
+      age: 26,
+    };
+    let obj4 = { ...obj3, contact: { phone: "010" } }; // 객체 복사...!
+
+    let obj5 = JSON.parse(JSON.stringify(obj4)); // 2차원 이상도 깊은 복사가 돼...!
+    obj5.contact.phone = "011";
+    console.log(obj4, obj5);
+  }
+
+  {
+    // array
+    let arr = [1, 2, 3, 4, 5];
+
+    // 1. slice
+    let arr2 = arr.slice(0); // 0번부터 끝까지..!
+
+    // 2. spread
+    let arr3 = [...arr];
+  }
+}
