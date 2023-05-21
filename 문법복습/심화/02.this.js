@@ -1,4 +1,5 @@
 "use strict";
+// var a = undefined;
 
 // this
 // => 함수 호출방식에 의해서 결정된다
@@ -10,8 +11,39 @@
     return this; // window객체!
   }
 
-  console.log(test());
+  // console.log(test());
 }
 
 // window : javascript로 브라우져를 제어할 수 있도록 브라우져 전체를 의미하는 객체이다.
 // javascript로 제어하기 위해서 window.~~ 방식으로 접근한다.
+
+{
+  console.log(a);
+  var a = 10;
+}
+
+{
+  // let ab; // 초기화가 되지 않아서 ab를 쓰지 못 함.
+  // console.log(ab); // 즉 호이스팅은 됐지만 초기화가 되지 않아서, 즉, 아직 TDZ에 있어서 ab를 사용하지 못 함.
+  let ab = 10; // 초기화가 아직 되지 않는다 => TDZ에 있다!
+
+  {
+    // const도 마찬가지..
+    const obj = {
+      name: "지성",
+      age: 26,
+    };
+
+    const copyObj = {
+      ...obj,
+      intro() {
+        return `my name is >> ${this.name}`;
+      },
+    };
+    console.log(copyObj.intro());
+  }
+
+  {
+    
+  }
+}

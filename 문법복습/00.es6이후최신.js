@@ -131,4 +131,21 @@
 }
 
 {
+  let printAge = (age) => {
+    return age >= 0 ? age : "나이가 음수일 수 없습니다.";
+  };
+
+  console.log(printAge(-3));
+  console.log(printAge(+3)); // 고의적으로 + 한 번 붙여봄...
+  console.log(printAge(+3));
+  console.log(printAge(+3));
+}
+
+{
+  // 1. JAVASCRIPT 문법 (심화)
+  // - closure
+  // - prototype
+  // - this
+  // - scope
+  // - class
 }
