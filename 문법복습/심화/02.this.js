@@ -44,6 +44,11 @@
   }
 
   {
-    
+  }
+
+  {
+    let number = 10;
+    if (number <= 19) console.log("미성년자!");
+    else console.log("Adult₩!");
   }
 }
