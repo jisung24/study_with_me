@@ -32,3 +32,6 @@ console.log(solution(20)); // 20의 약수의 합!
 {
   let add = (num1, num2) => num1 + num2;
 }
+
+{
+}
