@@ -67,6 +67,12 @@ class MaxHeap {
 
     return returnValue;
   }
+
+  전위() {
+    let currentIndex = 1;
+    let leftIndex = 2;
+    let rightIndex = 3;
+  }
 }
 
 const heap = new MaxHeap();
