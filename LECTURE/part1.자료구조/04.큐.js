@@ -1,65 +1,74 @@
 "use strict";
 
-// 자바스크립트는 큐를 직접 구현해야 함
-// ❗️단 shift를 사용하면 안 됨(가장 앞에 있는 원소 제거 => O(N))
-{
-  // 배열로 구현을 하게 되면, pop이 O(N)이라서 불가능
-  // 연결리스트로 구현을 해야 함
-  // 먼저 들 => 먼저 나 => 맨 앞(
-}
+// BFS DFS
+//
+// let graph = [
+//   [1, 0, 1, 1, 1],
+//   [1, 0, 1, 0, 1],
+//   [1, 0, 1, 1, 1],
+//   [1, 1, 1, 0, 1],
+//   [0, 0, 0, 0, 1],
+// ];
+
+//   dfs로 하면
+
+//   [1, 0, 9, 10, 11],
+// [2, 0, 8, 0, 12],
+// [3, 0, 7, 1, 13],
+// [4, 5, 6, 0, 14],
+// [0, 0, 0, 0, 15]
+// 쭉 갈 수 있다면, 도중에 방향을 절대로 틀지않는다. => 무조건 가던 방향으로 그대로 간다.
+// ⚪️ 만약 틀어야 최단 거리대로 가는 거라면, 최단거리를 구하는데, dfs는 옳지않은 알고리즘이 됨.
+
+// 이렇게 먼저 탐방을 하게 됨 => 쭉 갈 수 있다면, 방향을 틀지않고 쭉 가는 방법1
+
 class Queue {
-  // Array
   constructor() {
     this.queue = [];
-    this.front = 0;
     this.rear = 0;
+    this.front = 0;
   }
 
-  // enqueue : 값 넣기
   enqueue(value) {
-    // push
     this.queue[this.rear++] = value;
   }
 
-  // dequeue : 값 빼기
   dequeue() {
-    // pop shift
     let value = this.queue[this.front];
     delete this.queue[this.front];
-    this.front += 1; // front위치를 하나 증가시킨다.
+    this.front += 1;
     return value;
   }
 
-  // peek() : 맨 앞에 있는 즉, front에 있는 원소 반환!
   peek() {
     return this.queue[this.front];
   }
 
-  // size() : 큐 사이즈!
   size() {
     return this.rear - this.front;
   }
 }
 
-// 큐 이론
-// - 먼저 들어온 순서대로 나간다.
-// ex) 줄 서기, dfs알고리즘, 등등 먼저 큐에 들어간 원소가 먼저 나가야 함
+let graph = [[], [2, 3, 4], [1], [1, 5, 6], [1, 7], [3, 8], [3], [4], [5]];
 
-// - 동작 원리
-// 그림으로...
-// front, rear가 0부터 시작을 한다.
-// 원소가 들어오면 rear가 +1되고,
-// 원소가 나가게 되면 front가 +1된다
+let visited = new Array(graph.length).fill(false);
+console.log(visited);
 
-// 갑자기 꿀 팁... => highlight Matching tag 다운 받으세여... 꿀입니다 진짜
-//
-let queue = new Queue();
-queue.enqueue(1);
-queue.enqueue(7);
-queue.enqueue(10);
-queue.enqueue(100);
-console.log(queue);
+function bfs(startNode) {
+  // 우선 큐를 만든다.! => visited를 바꿔줄거기 때문에, 큐는 여기서 지역으로 해도돼!
+  let queue = new Queue();
+  queue.enqueue(startNode); // 일단 넣는다!!!
 
-queue.dequeue();
-console.log(queue);
-// 메모리 공간은 계속 차지함.
+  while (queue.size() !== 0) {
+    let out = queue.dequeue(); // 뺸다 => 이거랑 연결된 그래프 원소들을 넣어준다!
+    for (let value of graph[startNode]) {
+      if (!visited[value]) {
+        queue.enqueue(value);
+        visited[value] = true;
+      }
+    }
+  }
+}
+
+bfs(1);
+console.log(visited);
